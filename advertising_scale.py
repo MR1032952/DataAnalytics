@@ -27,7 +27,7 @@ st.subheader('User Input parameters')
 #st.write('## User Input parameters')
 st.write(df)
 
-loaded_model = pickle.load(open("ModelSales (1).h5", "rb")) #rb: read binary
+loaded_model = pickle.load(open("modelsalesex.h5", "rb")) #rb: read binary
 new_pred = loaded_model.predict(df_scale) # testing (examination)
 df_new_pred = pd.DataFrame(new_pred)
 
