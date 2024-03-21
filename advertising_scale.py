@@ -29,13 +29,14 @@ st.write(df)
 
 loaded_model = pickle.load(open("ModelSales (1).h5", "rb")) #rb: read binary
 new_pred = loaded_model.predict(df_scale) # testing (examination)
+df_new_pred = pd.DataFrame(new_pred)
 
 st.subheader('Scale Prediction')
 st.write(new_pred)
 
 loaded_scaler_t = pickle.load(open("scaler_target-ads.pkl", "rb"))
 
-unscale_target = loaded_scaler_t.inverse_transform(new_pred)
+unscale_target = loaded_scaler_t.inverse_transform(df_new_pred)
 
 st.subheader('Unscale Prediction')
 st.write(unscale_target)
